@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body></body>
+</html>
+
+<script>
+  var numbers = [1, 6, 8, 9]; // "1,6,8,9"
+  // localStorage will accept to store only strings and numbers
+
+  // JSON methods
+  // JSON.stringify()
+  localStorage.setItem("luckyNumbers", JSON.stringify(numbers));
+
+  var array = JSON.parse(localStorage.getItem("luckyNumbers"));
+  console.log(typeof array);
+  console.log(array);
+
+  var names = ["anurag", "mahesh", "ranveer"];
+
+  localStorage.setItem("studentNames", JSON.stringify(names));
+
+
+  var out1 = localStorage.getItem("studentNames"); // JSON
+  console.log(typeof out1);
+
+  var out = JSON.parse(localStorage.getItem("studentNames")); // JSON
+  console.log(typeof out);
+</script>

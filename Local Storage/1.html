@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body></body>
+</html>
+
+<script>
+  //setItem, getItem, clear, removeItem
+  //JSON.stringify()
+  //JSON.parse()
+
+  // numbers
+
+  //localStorage.setItem("key","value")
+
+  localStorage.setItem("mobile", 91819181918);
+
+  localStorage.setItem("CVV", 2345);
+
+  // strings
+
+  localStorage.setItem("name", "chandra");
+
+  var studen1 = "Gautam";
+
+  localStorage.setItem("Sname", studen1);
+
+  var student2 = "Irfan";
+
+  localStorage.setItem("Sname2", student2);
+
+  //getItem - localStorage.getItem("key")
+
+  var getMobile = localStorage.getItem("mobile");
+  console.log(getMobile);
+
+  console.log(localStorage.getItem("CVVqqqqqqqqqqq")); // null
+  // whenever you are trying to access something which is not thee in LS it will return null
+
+  //console.log(localStorage.getItem("Sname2"))
+
+  localStorage.setItem("mobile", 000000000);
+  localStorage.setItem("mobile", 1111111);
+
+  var name = "xyz";
+  name = "abc";
+
+  var obj = {
+    name: "masai",
+    name: "School",
+  };
+
+  console.log(obj.name);
+
+  
+
+  // 8mb
+  // localStorage will accept to store only strings and numbers
+</script>

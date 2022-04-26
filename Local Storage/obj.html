@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body></body>
+</html>
+
+<script>
+  var nameObj = { name: "Shubham", place: "banglore" };
+
+  localStorage.setItem("dataObj", JSON.stringify(nameObj));
+
+  var out = JSON.parse(localStorage.getItem("dataObj"))
+  console.log(out);
+
+  // //   json and obj
+
+  // var obj={name:"Vijay"}
+
+  // // JSON
+
+  // var JSONObj={"name":"Vijay"}
+ //var xyz= {"name":"Shubham","place":"banglore"} // JSON
+
+//  storing arrays or objs ---> JSON.stringify()
+
+//  using  arr or obj --> JSON.parse()
+</script>
