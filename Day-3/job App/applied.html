@@ -15,6 +15,25 @@
       <div><a href="bookmark.html">Bookmarks</a></div>
     </div>
 
+    <select id="sortNames" onchange="handleNameSort()">
+      <option value="">Sort By Names</option>
+      <option value="ascending">Ascending</option>
+      <option value="descending">Descending</option>
+    </select>
+
+    <select id="sortSalary" onchange="handleSalarySort()">
+      <option value="">Sort By Salary</option>
+      <option value="htl">High to Low</option>
+      <option value="lth">Low to High</option>
+    </select>
+
+    <select id="filterRole" onchange="handleRoleFilter()">
+      <option value="">Filter by Role</option>
+      <option value="FSD">FSD</option>
+      <option value="Frontend">Frontend</option>
+      <option value="Backend">Backend</option>
+    </select>
+
     <main>
       <table>
         <thead>
@@ -37,15 +56,71 @@
     var jobArr = JSON.parse(localStorage.getItem("jobList"));
     displayData(jobArr);
 
-     // reduce
-     var sum = jobArr.reduce(function (acc, elem) {
+    // reduce
+    var sum = jobArr.reduce(function (acc, elem) {
       return acc + Number(elem.personSalary);
     }, 0);
     console.log(sum);
 
     var bookMarkArr = JSON.parse(localStorage.getItem("bookmarks")) || [];
 
+    function handleSalarySort() {
+      var selected = document.querySelector("#sortSalary").value;
+      console.log(selected);
+      if (selected == "htl") {
+        jobArr.sort(function (a, b) {
+          return b.personSalary - a.personSalary;
+        });
+        displayData(jobArr);
+      }
+
+      if (selected == "lth") {
+        jobArr.sort(function (a, b) {
+          return a.personSalary - b.personSalary;
+        });
+        displayData(jobArr);
+      }
+    }
+
+    function handleRoleFilter() {
+      var selected = document.querySelector("#filterRole").value;
+      // filter will return array whenever it satifies the given condn
+
+      var filteredList = jobArr.filter(function (elem) {
+        return elem.personRole == selected;
+      });
+
+      console.log(filteredList);
+      displayData(filteredList);
+    }
+
+    function handleNameSort() {
+      var selected = document.querySelector("#sortNames").value;
+      console.log(selected);
+
+      if (selected == "ascending") {
+        jobArr.sort(function (a, b) {
+          if (a.personName > b.personName) return 1;
+          if (a.personName < b.personName) return -1;
+          return 0;
+        });
+        displayData(jobArr);
+        console.log(jobArr);
+      }
+      if (selected == "descending") {
+        jobArr.sort(function (a, b) {
+          if (a.personName > b.personName) return -1;
+          if (a.personName < b.personName) return 1;
+          return 0;
+        });
+        displayData(jobArr);
+        console.log(jobArr);
+      }
+    }
+
     function displayData(data) {
+      document.querySelector("tbody").innerHTML = "";
+
       data.forEach(function (elem) {
         var tr = document.createElement("tr");
 
